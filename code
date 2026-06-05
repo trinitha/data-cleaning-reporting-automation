@@ -1,0 +1,37 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Sample employee data
+data = {
+    'Employee': ['A', 'B', 'C', 'D', 'D'],
+    'Salary': [30000, 40000, None, 50000, 50000],
+    'Department': ['IT', 'HR', 'IT', None, None]
+}
+
+df = pd.DataFrame(data)
+
+# Original data
+print("Original Data")
+print(df)
+
+# Data cleaning
+df = df.drop_duplicates()
+df = df.fillna("Unknown")
+
+# Cleaned data
+print("\nCleaned Data")
+print(df)
+
+# Report
+print("\nReport Summary")
+print(df.describe(include='all'))
+
+# Graph
+salary = [30000, 40000, 50000]
+employees = ['A', 'B', 'D']
+
+plt.bar(employees, salary)
+plt.title("Employee Salary Report")
+plt.xlabel("Employee")
+plt.ylabel("Salary")
+plt.show()
